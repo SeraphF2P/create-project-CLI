@@ -1,0 +1,26 @@
+{
+  "name": "create-project",
+  "version": "1.0.0",
+  "description": "a bunch of starter project packages i use",
+  "type": "module",
+  "bin": {
+    "create-project": "bin/cli.js"
+  },
+  "scripts": {
+  },
+  "author": "jaffar ali",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "init-package-json": "^6.0.3",
+    "inquirer": "^9.2.15",
+    "nanospinner": "^1.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "eslint": "^9.8.0",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3"
+  }
+}
