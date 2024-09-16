@@ -1,19 +1,30 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import App from "./App"
-import "./index.css"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { ToastContainer } from "./lib/myToast"
+import Contexts from "./contexts/Contexts"
+import "./index.css"
+import { Master } from "./layouts/Master"
+import { ToastContainer } from "./lib/toast"
+import { HomePage } from "./pages/HomePage"
 
 const routers = createBrowserRouter([
   {
     path: "/",
-    Component: App,
+    element: <Master />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+    ],
   },
 ])
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ToastContainer />
-    <RouterProvider router={routers} />
+    <Contexts>
+      <RouterProvider router={routers} />
+    </Contexts>
   </React.StrictMode>
 )

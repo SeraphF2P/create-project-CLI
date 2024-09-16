@@ -1,12 +1,12 @@
-import { toast } from "~/lib/myToast"
-import { Btn } from "./ui"
-import Input from "./ui/Input"
+import { toast } from "~/lib/toast"
+import { Btn, Form } from "../ui"
 
 type TemplateGalleryProps = {}
 
 export const TemplateGallery = (props: TemplateGalleryProps) => {
   return (
-    <main className="container relative flex flex-wrap justify-center gap-4 p-8">
+    <main className="relative flex flex-wrap justify-center gap-4 p-8 container-grid">
+      {/* <------primary-----> */}
       <div className="flex rounded bg-white/30 py-4 pr-4 shadow-md">
         <h3 className="px-4 text-center writing-mode-vrl">primary</h3>
         <div className="flex flex-wrap items-center justify-start overflow-hidden rounded">
@@ -52,53 +52,53 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
           </div>
         </div>
       </div>
-      {/* <------> */}
+      {/* <------secondary-----> */}
       <div className="flex rounded bg-white/30 py-4 pr-4 shadow-md">
-        <h3 className="px-4 text-center writing-mode-vrl">secondry</h3>
+        <h3 className="px-4 text-center writing-mode-vrl">secondary</h3>
         <div className="flex flex-wrap items-center justify-start overflow-hidden rounded">
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
-              className={`flex size-24 items-center justify-center bg-secondry`}
+              className={`flex size-24 items-center justify-center bg-secondary`}
             >
-              <p className="text-secondry-text">main</p>
+              <p className="text-secondary-text">main</p>
             </div>
           </div>
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
-              className={`flex size-24 items-center justify-center bg-secondry-hover`}
+              className={`flex size-24 items-center justify-center bg-secondary-hover`}
             >
-              <p className="text-secondry-text">hover</p>
+              <p className="text-secondary-text">hover</p>
             </div>
           </div>
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
-              className={`flex size-24 items-center justify-center bg-secondry-active`}
+              className={`flex size-24 items-center justify-center bg-secondary-active`}
             >
-              <p className="text-secondry-text">active</p>
+              <p className="text-secondary-text">active</p>
             </div>
           </div>
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
-              className={`flex size-24 items-center justify-center bg-secondry-accent`}
+              className={`flex size-24 items-center justify-center bg-secondary-accent`}
             >
-              <p className="text-secondry-text">accent</p>
+              <p className="text-secondary-text">accent</p>
             </div>
           </div>
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
-              className={`flex size-24 items-center justify-center bg-secondry-text`}
+              className={`flex size-24 items-center justify-center bg-secondary-text`}
             >
-              <p className="text-secondry">text</p>
+              <p className="text-secondary">text</p>
             </div>
           </div>
         </div>
       </div>
-      {/* <------> */}
+      {/* <------actions-----> */}
       <div className="flex rounded bg-white/30 py-4 pr-4 shadow-md">
         <h3 className="px-4 text-center writing-mode-vrl">actions</h3>
         <div className="flex flex-wrap items-center justify-start overflow-hidden rounded">
@@ -107,7 +107,7 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
             <div
               className={`flex size-24 items-center justify-center bg-success`}
             >
-              <p className="text-neutral-black">success</p>
+              <p className="text-success-text">success</p>
             </div>
           </div>
           {/* <------> */}
@@ -115,19 +115,19 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
             <div
               className={`flex size-24 items-center justify-center bg-alert`}
             >
-              <p className="text-neutral-white">alert</p>
+              <p className="text-alert-text">alert</p>
             </div>
           </div>
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div className={`flex size-24 items-center justify-center bg-info`}>
-              <p className="text-neutral-white">info</p>
+              <p className="text-info-text">info</p>
             </div>
           </div>
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div className={`flex size-24 items-center justify-center bg-warn`}>
-              <p className="text-neutral-black">warn</p>
+              <p className="text-warn-text">warn</p>
             </div>
           </div>
           {/* <------> */}
@@ -148,56 +148,67 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
           </div>
         </div>
       </div>
+      {/* <------buttons------> */}
+      <div className="abg-white/30 flex rounded py-4 pr-4 shadow-md">
+        <h3 className="px-4 text-center writing-mode-vrl">buttons</h3>
+        <div className="flex flex-wrap items-center justify-start gap-4 p-4 *:flex-1">
+          <Btn>default</Btn>
+          <Btn colour="primary" variant="fill">
+            fill
+          </Btn>
+          <Btn colour="primary" variant="outline">
+            outline
+          </Btn>
+          <Btn colour="primary" variant="ghost">
+            ghost
+          </Btn>
+          <Btn colour="primary" variant="none">
+            none
+          </Btn>
+        </div>
+      </div>
       {/* <------notification-----> */}
       <div className="flex rounded bg-white/30 py-4 pr-4 shadow-md">
         <h3 className="px-4 text-center writing-mode-vrl">notification</h3>
-        <div className="flex flex-wrap items-center justify-start gap-4 overflow-hidden rounded *:flex-1">
-          <Btn onClick={() => toast({ message: "default" })}>default</Btn>
+        <div className="flex flex-wrap items-center justify-start gap-4 *:flex-1">
+          <Btn colour="secondary" onClick={() => toast({ message: "default" })}>
+            default
+          </Btn>
           <Btn
+            colour="secondary"
             variant="fill"
-            className="variant-primary"
             onClick={() => toast.success({ message: "success" })}
           >
             success
           </Btn>
           <Btn
-            className="variant-alert enabled:hover:variant-red-500"
-            variant="fill"
+            colour="secondary"
+            variant="outline"
             onClick={() => toast.error({ message: "alert" })}
           >
             alert
           </Btn>
           <Btn
-            className="variant-info enabled:hover:variant-cyan-500"
-            variant="fill"
+            colour="secondary"
+            variant="ghost"
             onClick={() => toast.info({ message: "info" })}
           >
             info
           </Btn>
           <Btn
-            className="variant-warn enabled:hover:variant-amber-400"
-            variant="fill"
+            colour="secondary"
+            variant="none"
             onClick={() => toast.warn({ message: "warn" })}
           >
             warn
           </Btn>
         </div>
       </div>
-      {/* <------buttons------> */}
-      <div className="flex rounded bg-white/30 py-4 pr-4 shadow-md">
-        <h3 className="px-4 text-center writing-mode-vrl">buttons</h3>
-        <div className="flex flex-wrap items-center justify-start gap-4 overflow-hidden rounded p-4 *:flex-1">
-          <Btn>default</Btn>
-          <Btn variant="fill">fill</Btn>
-          <Btn variant="outline">outline</Btn>
-          <Btn variant="ghost">ghost</Btn>
-          <Btn variant="none">none</Btn>
-        </div>
-      </div>
+
       {/* <-----buttons disabled-----> */}
       <div className="flex rounded bg-white/30 py-4 pr-4 shadow-md">
         <h3 className="px-4 text-center writing-mode-vrl">buttons disabled</h3>
-        <div className="flex flex-wrap items-center justify-start gap-4 overflow-hidden rounded p-4 *:flex-1">
+        <div className="flex flex-wrap items-center justify-start gap-4 p-4 *:flex-1">
           <Btn disabled>default</Btn>
           <Btn disabled variant="fill">
             fill
@@ -214,16 +225,19 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
         </div>
       </div>
       {/* <------form element------> */}
-      <div className="flex rounded bg-white/30 py-4 pr-4 shadow-md">
+      <div className="flex rounded py-4 pr-4 shadow-md">
         <h3 className="px-4 text-center writing-mode-vrl">form element</h3>
         <div className="flex flex-col items-center justify-start gap-4 rounded p-4">
-          <Input label="text/email" />
-          <Input label="password" type="password" />
-          <Input label="date" type="date" />
-          <Input label="number" type="number" />
-          <Input label="text" type="checkbox" />
-          <Input label="text" type="radio" />
+          <Form.Input label="text/email" />
+          <Form.Input label="password" type="password" />
+          <Form.Input label="date" type="date" />
+          <Form.Input label="number" type="number" />
+          <Form.Input label="text" type="checkbox" />
+          <Form.Input label="text" type="radio" />
         </div>
+      </div>
+      <div>
+        <div className="size-20 bg-clur clur-primary"></div>
       </div>
     </main>
   )

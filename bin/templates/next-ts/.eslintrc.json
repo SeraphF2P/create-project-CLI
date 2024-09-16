@@ -1,0 +1,9 @@
+
+{
+  
+  "extends": ["plugin:@tanstack/eslint-plugin-query/recommended","next/core-web-vitals"],
+  "plugins": ["@tanstack/eslint-plugin-query"],
+  "rules": {
+    "jsx-a11y/alt-text": "none"
+  }
+}

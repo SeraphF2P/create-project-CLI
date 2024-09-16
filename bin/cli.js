@@ -84,7 +84,8 @@ if (!condition) {
     // Create project directory if it doesn't exist
     if (!fs.existsSync(projectPath)) {
       fs.mkdirSync(projectPath);
-    } else {
+    } 
+    else {
       spinner.error({ text: `Project directory '${projectName}' already exists.` });
       {
         process.exit(1);

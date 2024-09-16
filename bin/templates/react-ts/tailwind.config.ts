@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import MyPreset from "./src/lib/tw-plugins/MyPreset";
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
+import Preset from "./src/lib/tailwind/preset"
 
 const config = {
-  presets: [MyPreset],
+  presets: [Preset],
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
-} satisfies Config;
-export default config;
+} satisfies Config
+export default config
