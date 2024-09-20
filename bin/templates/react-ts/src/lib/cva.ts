@@ -46,7 +46,7 @@ export const variants = cva(
         variant: "ghost",
         colour: "primary",
         className:
-          "active::text-primary-text active:bg-primary md:hover:bg-primary/60 md:hover:text-neutral-black",
+          "active::text-primary-text hover:bg-primary/60 hover:text-primary-text active:bg-primary",
       },
       {
         variant: "fill",

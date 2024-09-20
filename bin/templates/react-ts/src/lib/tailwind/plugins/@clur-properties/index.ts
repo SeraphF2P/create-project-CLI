@@ -1,36 +1,44 @@
 import plugin from "tailwindcss/plugin"
-import { KeyValuePair } from "tailwindcss/types/config"
 
 export const ClurProperties = plugin(
   ({ addUtilities, matchUtilities, theme }) => {
-    const colors = theme("colors")
-    const colorsKeys = Object.keys(colors ?? {})
+    const colors = theme("colors") ?? {}
+    const colorsKeys = Object.keys(colors)
     const helper = ({
       color,
       key = "",
     }: {
       key?: string
-      color: string | KeyValuePair
+      color: (typeof colorsKeys)[number]
     }) => {
-      if (colors == undefined) return
-
       const prefix = `clur${key ? `-${key}` : ""}`
+      const selectedColor = colors[color]
+      if (typeof selectedColor === "string") {
+        addUtilities([
+          {
+            [`.${prefix}-${color}`]: {
+              [`--${prefix}`]: selectedColor,
+            },
+          },
+        ])
+        return
+      }
 
       matchUtilities(
         {
           [`${prefix}-${color}`]: (val) => {
-            // if ("DEFAULT" in val) return val.DEFAULT
             return { [`--${prefix}`]: val }
           },
         },
         {
-          values: theme(`colors.${color}`),
+          values: selectedColor,
           respectImportant: true,
           respectPrefix: true,
           type: "color",
         }
       )
     }
+
     colorsKeys.forEach((color) => {
       helper({ color })
       helper({ key: "hover", color })
@@ -40,11 +48,11 @@ export const ClurProperties = plugin(
     })
     addUtilities({
       ".theme-primary": {
-        "--clur": "--primary",
-        "--clur-hover": "--primary-hover",
-        "--clur-active": "--primary-active",
-        "--clur-accent": "--primary-accent",
-        "--clur-text": "--primary-text",
+        "--clur": "var(--primary)",
+        "--clur-hover": "var(--primary-hover)",
+        "--clur-active": "var(--primary-active)",
+        "--clur-accent": "var(--primary-accent)",
+        "--clur-text": "var(--primary-text)",
       },
     })
   },

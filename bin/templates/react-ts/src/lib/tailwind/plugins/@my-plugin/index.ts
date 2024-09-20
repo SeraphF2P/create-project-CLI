@@ -1,15 +1,13 @@
 import plugin from "tailwindcss/plugin"
 
-type RootColorVariables = { [key: string]: string }
-
 export const MyPlugin = plugin(
-  ({ addBase, addUtilities, e, matchUtilities, theme }) => {
+  ({ addBase, addUtilities }) => {
     addBase({
       "::-ms-reveal": {
         filter: "invert(100%)",
       },
       body: {
-        "@apply bg-neutral-white  text-neutral-black caret-primary selection:bg-primary selection:text-primary-text":
+        "@apply bg-neutral-white text-neutral-black dark:bg-neutral-black dark:text-neutral-white   caret-primary selection:bg-primary selection:text-primary-text":
           {},
         "font-feature-settings": '"rlig" 1, "calt" 1',
       },
@@ -146,41 +144,6 @@ export const MyPlugin = plugin(
         gridAutoRows: {
           fluid: "repeat(auto-fit,minmax(0,1fr))",
         },
-        // animation: {
-        //   buzz: "buzz 2s infinite linear  ",
-        //   slideDown: "slideDown 0.3s forwards linear  ",
-        //   slideUp: "slideUp 0.3s forwards linear  ",
-        //   slidein: "slidein 0.4s linear",
-        //   slideout: "slideout 0.4s linear",
-        //   fadeIn: "fadeIn 0.4s linear",
-        //   fadeout: "fadeout 0.4s linear",
-        // },
-        // keyframes: {
-        //   slidein: {
-        //     "0%": { transform: "translate(100%, 0%)" },
-        //     "100%": { transform: "translate(0%, 0%)" },
-        //   },
-        //   slideout: {
-        //     "0%": { transform: "translate(0%, 0%)" },
-        //     "100%": { transform: "translate(100%, 0%)" },
-        //   },
-        //   fadeIn: {
-        //     from: {
-        //       opacity: "0",
-        //     },
-        //     to: {
-        //       opacity: "1",
-        //     },
-        //   },
-        //   fadeout: {
-        //     from: {
-        //       opacity: "1",
-        //     },
-        //     to: {
-        //       opacity: "0",
-        //     },
-        //   },
-        // },
       },
     },
   }
