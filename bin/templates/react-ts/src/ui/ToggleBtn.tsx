@@ -2,17 +2,16 @@
 
 import { cn } from "~/lib/cva"
 import { Btn, type BtnProps } from "~/ui"
-import { useState, type FC } from "react"
+import { ReactNode, useState, type FC } from "react"
 
-interface ToggleBtnProps extends BtnProps {
-  whenToggled?: string
+interface ToggleBtnProps extends Omit<BtnProps, "children"> {
   defaultToggleState?: boolean
+  children?: ReactNode | (({ isToggled }: { isToggled: boolean }) => ReactNode)
 }
 
 export const ToggleBtn: FC<ToggleBtnProps> = ({
   defaultToggleState = false,
   className,
-  whenToggled,
   children,
   onClick,
   ...props
@@ -28,13 +27,11 @@ export const ToggleBtn: FC<ToggleBtnProps> = ({
           onClick(e)
         }
       }}
-      className={cn(className, {
-        whenToggled: isToggled,
-      })}
-      data-checked={isToggled}
+      data-toggled={isToggled}
+      className={cn(className)}
       {...props}
     >
-      {children}
+      {typeof children === "function" ? children({ isToggled }) : children}
     </Btn>
   )
 }

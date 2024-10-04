@@ -1,5 +1,20 @@
-import { TemplateGallery } from "~/components"
+import { Btn } from "~/ui"
+import { useTranslation } from "react-i18next"
 
 export const HomePage = () => {
-  return <>{import.meta.env.DEV && <TemplateGallery />}</>
+  const [t, i18n] = useTranslation()
+  return (
+    <>
+      {t("key")}
+      <Btn
+        onClick={() =>
+          i18n.language === "ar"
+            ? i18n.changeLanguage("en")
+            : i18n.changeLanguage("ar")
+        }
+      >
+        toggle
+      </Btn>
+    </>
+  )
 }

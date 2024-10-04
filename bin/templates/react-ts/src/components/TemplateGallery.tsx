@@ -6,12 +6,21 @@ type TemplateGalleryProps = {}
 
 export const TemplateGallery = (props: TemplateGalleryProps) => {
   return (
-    <main className="relative flex flex-wrap justify-center gap-4 p-8 container-grid">
-      <ThemeToggler />
+    <section className="container relative columns-[288px] space-y-8 py-8 [column-gap:2rem] *:break-inside-avoid-column">
+      {/* <------toggles-----> */}
+      <div className="flex flex-col-reverse items-center rounded bg-neutral-white/30 py-4 shadow-md dark:shadow-neutral-white/30">
+        <h3 className="p-4 text-center">toggles</h3>
+        <div className="flex flex-col items-center justify-center overflow-hidden rounded">
+          {/* <------> */}
+          <ThemeToggler />
+          {/* <------> */}
+        </div>
+      </div>
+
       {/* <------primary-----> */}
-      <div className="flex rounded bg-neutral-white/30 py-4 pr-4 shadow-md dark:shadow-neutral-white/30">
-        <h3 className="px-4 text-center writing-mode-vrl">primary</h3>
-        <div className="flex flex-wrap items-center justify-start overflow-hidden rounded">
+      <div className="flex flex-col-reverse items-center rounded bg-neutral-white/30 py-4 shadow-md dark:shadow-neutral-white/30">
+        <h3 className="p-4 text-center">primary</h3>
+        <div className="flex flex-col items-center justify-center overflow-hidden rounded">
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
@@ -55,9 +64,9 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
         </div>
       </div>
       {/* <------secondary-----> */}
-      <div className="flex rounded bg-neutral-white/30 py-4 pr-4 shadow-md dark:shadow-neutral-white/30">
-        <h3 className="px-4 text-center writing-mode-vrl">secondary</h3>
-        <div className="flex flex-wrap items-center justify-start overflow-hidden rounded">
+      <div className="flex flex-col-reverse items-center rounded bg-neutral-white/30 py-4 shadow-md dark:shadow-neutral-white/30">
+        <h3 className="p-4 text-center">secondary</h3>
+        <div className="flex flex-col items-center justify-center overflow-hidden rounded">
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
@@ -101,9 +110,9 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
         </div>
       </div>
       {/* <------actions-----> */}
-      <div className="flex rounded bg-neutral-white/30 py-4 pr-4 shadow-md dark:shadow-neutral-white/30">
-        <h3 className="px-4 text-center writing-mode-vrl">actions</h3>
-        <div className="flex flex-wrap items-center justify-start overflow-hidden rounded">
+      <div className="flex flex-col-reverse items-center rounded bg-neutral-white/30 py-4 shadow-md dark:shadow-neutral-white/30">
+        <h3 className="p-4 text-center">actions</h3>
+        <div className="flex flex-col items-center justify-center overflow-hidden rounded">
           {/* <------> */}
           <div className="flex flex-col items-center capitalize">
             <div
@@ -151,8 +160,8 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
         </div>
       </div>
       {/* <------buttons------> */}
-      <div className="flex rounded bg-neutral-white/30 py-4 pr-4 shadow-md dark:shadow-neutral-white/30">
-        <h3 className="px-4 text-center writing-mode-vrl">buttons</h3>
+      <div className="flex flex-col-reverse items-center rounded bg-neutral-white/30 py-4 shadow-md dark:shadow-neutral-white/30">
+        <h3 className="p-4 text-center">buttons</h3>
         <div className="flex flex-wrap items-center justify-start gap-4 p-4 *:flex-1">
           <Btn>default</Btn>
           <Btn colour="primary" variant="fill">
@@ -170,8 +179,8 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
         </div>
       </div>
       {/* <------notification-----> */}
-      <div className="flex rounded bg-neutral-white/30 py-4 pr-4 shadow-md dark:shadow-neutral-white/30">
-        <h3 className="px-4 text-center writing-mode-vrl">notification</h3>
+      <div className="flex flex-col-reverse items-center rounded bg-neutral-white/30 py-4 shadow-md dark:shadow-neutral-white/30">
+        <h3 className="p-4 text-center">notification</h3>
         <div className="flex flex-wrap items-center justify-start gap-4 *:flex-1">
           <Btn colour="secondary" onClick={() => toast({ message: "default" })}>
             default
@@ -208,8 +217,8 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
       </div>
 
       {/* <-----buttons disabled-----> */}
-      <div className="flex rounded bg-neutral-white/30 py-4 pr-4 shadow-md dark:shadow-neutral-white/30">
-        <h3 className="px-4 text-center writing-mode-vrl">buttons disabled</h3>
+      <div className="flex flex-col-reverse items-center rounded bg-neutral-white/30 py-4 shadow-md dark:shadow-neutral-white/30">
+        <h3 className="p-4 text-center">buttons disabled</h3>
         <div className="flex flex-wrap items-center justify-start gap-4 p-4 *:flex-1">
           <Btn disabled>default</Btn>
           <Btn disabled variant="fill">
@@ -226,9 +235,10 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
           </Btn>
         </div>
       </div>
+
       {/* <------form element------> */}
-      <div className="flex rounded py-4 pr-4 shadow-md">
-        <h3 className="px-4 text-center writing-mode-vrl">form element</h3>
+      <div className="flex rounded py-4 shadow-md">
+        <h3 className="p-4 text-center">form element</h3>
         <div className="flex flex-col items-center justify-start gap-4 rounded p-4">
           <Form.Input label="text/email" />
           <Form.Input label="password" type="password" />
@@ -238,6 +248,6 @@ export const TemplateGallery = (props: TemplateGalleryProps) => {
           <Form.Input label="text" type="radio" />
         </div>
       </div>
-    </main>
+    </section>
   )
 }
